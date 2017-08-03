@@ -22,7 +22,7 @@ public class EmailConsumerApplication {
     @LoadBalanced
     RestTemplate restTemplate() {
         RestTemplate restTemplate = new RestTemplate();
-        reInitMessageConverter(restTemplate);
+//        reInitMessageConverter(restTemplate);
         return restTemplate;
     }
 
@@ -55,6 +55,6 @@ public class EmailConsumerApplication {
             converterList.remove(converterTarget);
         }
         HttpMessageConverter<?> converter = new StringHttpMessageConverter(StandardCharsets.UTF_8);
-        converterList.add(converter);
+        converterList.add(1, converter);
     }
 }
