@@ -9,22 +9,22 @@ import org.springframework.context.annotation.Bean;
 
 @EnableZuulProxy
 @SpringCloudApplication
-public class Application {
+public class ApiGatewayApplication {
 
 	public static void main(String[] args) {
-		new SpringApplicationBuilder(Application.class).web(true).run(args);
+		new SpringApplicationBuilder(ApiGatewayApplication.class).web(true).run(args);
 	}
 
-	@Bean
-	public AccessFilter accessFilter() {
-		return new AccessFilter();
-	}
-
-	@Bean
-	public PatternServiceRouteMapper serviceRouteMapper() {
-		return new PatternServiceRouteMapper(
-				"(?<name>^.+)-(?<version>v.+$)",
-				"${version}/${name}");
-	}
+//	@Bean
+//	public AccessFilter accessFilter() {
+//		return new AccessFilter();
+//	}
+//
+//	@Bean
+//	public PatternServiceRouteMapper serviceRouteMapper() {
+//		return new PatternServiceRouteMapper(
+//				"(?<name>^.+)-(?<version>v.+$)",
+//				"${version}/${name}");
+//	}
 
 }

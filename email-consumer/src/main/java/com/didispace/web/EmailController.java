@@ -9,17 +9,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HelloController {
+public class EmailController {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private DiscoveryClient client;
+    @Autowired
+    private EmailService emailService;
 
-    @RequestMapping("/hello")
-    public String index() {
+    @RequestMapping("/sendEmail")
+    public String sendEmail() {
 
         ServiceInstance serviceInstance = client.getLocalServiceInstance();
         logger.info("/hello, host:" + serviceInstance.getHost() + ", serviceId:" + serviceInstance.getServiceId());
+
+        Result result = emailService.sendEmail();
+        System.out.println(result);
         return "Hello World";
     }
 

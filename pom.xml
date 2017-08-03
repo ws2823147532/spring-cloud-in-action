@@ -56,7 +56,7 @@
 
         <module>consul-client-1</module>
         <module>api-gateway-consul</module>
-        <module>eureka-client</module>
+        <module>email-consumer</module>
     </modules>
 
 </project>
