@@ -1,0 +1,19 @@
+
+spring:
+  application:
+    name: didispace
+  cloud:
+      config:
+        discovery:
+          enabled: true
+          serviceId: config-server
+        profile: mytest
+        failFast: true
+#        label: mail-server
+server:
+  port: 7002
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
